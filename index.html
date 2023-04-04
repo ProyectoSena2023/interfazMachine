@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="top-controls">
+        <div class="container 1--page">
+        <div class="timeline-controls">
+            <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button" title="Reset the network" data-upgraded=",MaterialButto">
+                <i class="material-icons">replay</i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton" id="play-paused-button" title="Run/Pause" data-upgraded=",MaterialButton">
+                <i class="material-icons">play_arrow</i>
+                <i class="material-icons">pause</i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button-icon ui-stepButton" id="next-step-button" title="Step" data-upgraded=",MaterialButton">
+                <i class="material-icons">skip_next</i>
+            </button>
+        </div>
+        <div class="control">
+            <span class="label">Epoch</span>
+            <span class="value" id="iter-number">000,000</span>
+        </div>
+        <div class="control ui-learningRate">
+            <label for="learningRate">learning rate</label>
+            <div class="select">
+                <select id="learningRate">
+                    <option value="0.00001">0.00001</option>
+                    <option value="0.0001">0.0001</option>
+                    <option value="0.001">0.001</option>
+                    <option value="0.003">0.003</option>
+                    <option value="0.01">0.01</option>
+                    <option value="0.03">0.03</option>
+                    <option value="0.1">0.1</option>
+                    <option value="0.3">0.3</option>
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="10">10</option>
+                </select>
+               
+            </div>
+        </div>
+        <div class="control ui-activation">
+            <label for="activations">Activation</label>
+            <div class="select">
+                <select id="activations">
+                    <option value="relu">ReLU</option>
+                    <option value="tanh">Tanh</option>
+                    <option value="sigmoid">Sigmoid</option>
+                    <option value="linear">Linear</option>
+                </select>
+                
+
+            </div>
+        </div>
+        <div class="control ui-regularization">
+            <label for="regularizations">Regularization</label>
+            <div class="select">
+               <select id="regularizations">
+                <option value="none">None</option>
+                <option value="L1">L1</option>
+                <option value="L2">L2</option>
+               </select>
+              
+            </div>
+        </div>
+        <div class="control ui-regularizationRate">
+            <label for="regularRate">Regularization Rate</label>
+            <div class="select">
+                <select id="regularRate">
+                    <option value="0">0</option>
+                    <option value="0.001">0.001</option>
+                    <option value="0.003">0.003</option>
+                    <option value="0.01">0.01</option>
+                    <option value="0.03">0.03</option>
+                    <option value="0.1">0.1</option>
+                    <option value="0.3">0.3</option>
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="10">10</option>
+                </select>
+               
+            </div>
+        </div>
+        <div class="control ui-problem">
+            <label for="problem">Problem type</label>
+            <select id="problem">
+               <option value="classification">Classification</option>
+               <option value="regression">regression</option> 
+            </select>
+            
+        </div>
+      </div>
+    </div>
+    <div class="column date">
+        <h4>
+            <span>Data</span>
+        </h4>
+        <div class="ui-dataset">
+            <p>Which dataset</p>
+            <div class="dataset-list">
+                <div class="dataset" title="Circle" style="display:none;">
+                    <canvas class="data-thumbnail" data-dataset="circle">
+                </div>
+                <div class="dataset" title="Exclusive or" style="display: none;">
+                    <canvas class="data-thumbnail" data-dataset="xor">
+                </div>
+                <div class="dataset" title="Gaussian" style="display: none;">
+                    <canvas class="data-thumbnail" data-dataset="gauss"></canvas>
+                </div>
+                <div class="dataset" title="Spiral" style="display: none;">
+                    <canvas class="data-thumbnail selected" data-dataset="spiral"></canvas>
+                </div>
+                <div class="dataset" title="Plane"style>
+                    <canvas class="data-thumbnail selected" data-regdataset="reg-plane" width="100" height="100">
+                </div>
+                
+                <div class="dataset" title="Multi gaussian" style>
+                    <canvas class="data-thumbnail" data-regdataset="reg-gauss" width="100" height="100">
+                </div>
+            </div>
+        </div>
+        <div>
+          <div class="ui-percTrainData">
+            <label for="percTrainData">
+                "Ratio of training"
+                <span class="value">40</span>
+                "%"
+            </label>
+            <p class="slider">
+                <div class="mdl-slider__container">
+                    <input class="mdl-slider mdl-js-slider is-upgraded" type="range" id="percTrainDate" min="10" max="90" step="10" data-upgraded=",MateralSlider">
+                    <div class="mdl-slider__backgroun-flex">
+                        <div class="mdl-slider__backgroun-lower" style="flex: 0.375 1 0%;"></div>
+                        <div class="mdl-slider__backgroun-upper" style="flex: 0.625 1 0%;"></div>
+                    </div>
+                </div>
+            </p>
+          </div>
+          <div class="ui-noice">
+            <label for="noice">
+                "Noise"
+                <span class="value">40</span>
+                "%"
+            </label>
+            <p class="slider">
+                <div class="mdl-slider__container">
+                    <input class="mdl-slider mdl-js-slider is-upgraded" type="range" id="noise" min="0" max="50" step="5" data-upgraded=",MaterialSlider">
+                    <div class="mdl-slider__background-flex">
+                        <div class="mdl-slider__background-lower" style="flex: 0.8 1 0%;"></div>
+                        <div class="mdl-slider__background-upper" style="flex: 0.2 1 0%;"></div>
+                    </div>
+                </div>
+            </p>
+          </div>
+          <div class="ui-batchSize">
+            <label for="batchSize">
+                "batchSize"
+                <span class="value">20</span>
+                "%"
+            </label>
+            <p class="slider">
+                <div class="mdl-slider__container">
+                    <input class="mdl-slider mdl-js-slider is-upgraded" type="range" id="batchSize" min="1" max="30" step="1" data-upgraded=",MaterialSlider">
+                    <div class="mdl-slider__background-flex">
+                        <div class="mdl-slider__background-lower" style="flex : 0.655172 1 0%;"></div>
+                        <div class="mdl-slider__background-upper" style="flex : 0.344828 1 0%;"></div>
+                    </div>
+                </div>
+                
+            </p>
+          </div> 
+          <button class="basic-button" id="data-regen-button" title="Regenerate data">Regenerate</button> 
+        </div>
+    </div>
+    
+</body>
+</html>
