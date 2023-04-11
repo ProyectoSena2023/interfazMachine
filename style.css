@@ -103,8 +103,7 @@
 }
 
 #top-controls .control .select::after {
-    /* class: "material-icons"; */
-    content: "arrow_drop_down";
+    
     color: #999;
     font-family: 'Material Icons';
     font-weight: normal;
